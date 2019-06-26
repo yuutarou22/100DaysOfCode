@@ -45,6 +45,7 @@ class standard {
         tmpBoolean = Boolean.getBoolean(tmpString);
 
 
+
         /**
          * 演算子たち。
          * 基本的な四則演算子等は省略する。
@@ -94,5 +95,82 @@ class standard {
         System.out.println(tmpString instanceof String ? "String" : "Not String");
 
 
+
+        /**
+         * プログラムの単位として、おおざっぱに
+         * 　　式 < 文 < ブロック
+         * で構成されている。
+         * 
+         * 式：単一の計算するための変数、演算子、メソッド呼び出しを含む系列。
+         * 文：実行の最小単位となるもの。文の最後は「;」がつく。
+         * ブロック：文をいくつかまとめたもの。{文1; 文2;...} のように中かっこで囲む
+         * 
+         */
+
+        // 課題
+        int i = 10;
+        System.out.println(i-- % 5 > 0);
+
+        double xValue = 12.345, yValue = 54.321, work;
+        System.out.println("befor: xValue and yValue = " + xValue + ", " + yValue);
+        work = xValue;
+        xValue = yValue;
+        yValue = work;
+        System.out.println("after: xValue and yValue = " + xValue + ", " + yValue);
+
+
+
+        /**
+         * コントロール文
+         * 実行順序を改変する文のこと。
+         * 繰り返し：while, do-while, for
+         * 決定　　：if-else, switch-case
+         * 分岐　　：break, continue, label:, return
+         */
+
+
+        // while
+        tmpInt = 10;
+        while (tmpInt > 0) {
+            System.out.println("tmpInt= " + tmpInt--);
+        }
+
+        // do-while(３乗と２乗の差が200より大きい最小の整数を求める)
+        int x = 1;
+        do {
+            x++;
+        } while (Math.pow(x, 3) - Math.pow(x, 2) <= 200);
+        System.out.println("x = " + x);
+
+        // for(triangle01)
+        for (int j = 1; j <= 10; j++) {
+            for (int k=0; k < j; k ++) {
+                System.out.print("*");
+            }
+            System.out.println("\n");
+        }
+        // for(triangle02=対照的な三角形も作ろう)
+
+
+
+        /**
+         * 配列
+         * 一つの変数名の元で多数の値を保持できる。
+         */
+        // 初期値を伴う配列定義
+        int intArray[] = {0, 1, 2, 3, 4, 5};
+        // 初期値のない配列を定義
+        double doubleArray[] = new double[5];
+        char charArray[];
+        charArray = new char[5];
+
+
+        // 課題
+        int resultData[] = {32,73,25,57,34,90,68,83,45,76};
+        int sum = 0;
+        for (int j = 0; j < resultData.length; j++) {
+            sum += resultData[j];
+        }
+        System.out.println("average = " + sum / resultData.length);
     }
 }
