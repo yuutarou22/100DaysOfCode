@@ -1,5 +1,3 @@
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
-
 class standard {
     public static void main(String args[]) {
         /**
@@ -33,7 +31,7 @@ class standard {
         /**
          * プリミティブ型の変数でも参照型のように扱いたい時は、
          * ラッパークラスを用いる。
-         * ちなみに、Boolean, Characterクラス以外は、全てNumberクラスのこクラス。
+         * ちなみに、Boolean, Characterクラス以外は、全てNumberクラスのサブクラス。
          * */
         tmpByte = Byte.MAX_VALUE;
         tmpShort = Short.MAX_VALUE;
@@ -172,5 +170,40 @@ class standard {
             sum += resultData[j];
         }
         System.out.println("average = " + sum / resultData.length);
+
+
+
+        /**
+         * 文字データを扱うクラス
+         * ...にはCharacter, String, StringBufferがある。
+         * クラスメソッドは、インスタンス生成しなくても使えるメソッド（予めあるもの）
+         * インスタンスメソッドは、インスタンスを生成しないと使えないメソッド（独自実装したメソッド等）
+         */
+        Character tmpCharacter = new Character('a');
+        System.out.println("toUpperCase = " + Character.toUpperCase(tmpCharacter));
+        System.out.println("toLowerCase = " + Character.toLowerCase(tmpCharacter));
+
+        String tmpString2 = "tmpString";
+        System.out.println("length = " + tmpString2.length());
+        System.out.println("tmpString2.charAt(3) = " + tmpString2.charAt(3));
+        System.out.println("tmpString2.toUpperCase() = " + tmpString2.toUpperCase());
+        System.out.println("tmpString2.toLowerCase() = " + tmpString2.toLowerCase());
+        System.out.println("tmpString2.substring(4) = " + tmpString2.substring(4));
+        System.out.println("tmpString2.replace(\"tmp\", \"テンプレート\") = " + tmpString2.replace("tmp", "テンプレート"));
+
+
+
+        /**
+         * 数値クラス
+         * 先述にもあるが、Numberクラスをスーパークラスとし、
+         * そのサブクラスに8つの数値クラスがある。
+         * Byte, Short, Integer, Long, Float, Double, BigInteger, BigDecimal
+         */
+        Integer integer1 = new Integer(20);
+        Integer integer2 = new Integer(20);
+        Long long1 = new Long(20);
+        System.out.println((integer1.equals(integer2) ? "Equal" : "Different"));
+        System.out.println((integer1.equals(long1) ? "Equal" : "Different"));
+        System.out.println(Integer.valueOf(integer1));
     }
 }
