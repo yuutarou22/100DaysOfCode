@@ -22,13 +22,15 @@ public class Board {
         this.StoneList = new ArrayList<>();
         for (int y = 0; y < this.yNum; y++) {
             for (int x = 0; x < this.xNum; x++) {
-                Stone Stone;
-                if (x == 0 || (x == this.xNum - 1)) {
-                    Stone = new Stone(x, y, 2);
-                } else {
-                    Stone = new Stone(x, y);
-                }
+                Stone Stone = new Stone(x, y, 2);
                 this.StoneList.add(Stone);
+            }
+        }
+        
+        for (int y = 1; y < this.yNum-1; y++) {
+            for (int x = 1; x < this.xNum-1; x++) {
+                Stone stone = getStone(y, x);
+                stone.setState(0);
             }
         }
     }
