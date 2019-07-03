@@ -60,6 +60,9 @@ public class Board {
         Stone.setState(state);
     }
 
+    /**
+     * 盤面の表示処理
+     */
     public void showBoard() {
         int [][] board = new int[yNum][xNum];
         for (Stone Stone : this.StoneList) {
