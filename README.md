@@ -10,3 +10,5 @@
 - Androidのチュートリアル(翻訳した方が読みやすい)[https://www.vogella.com//tutorials/android.html]
 - Androidのチュートリアル(これも海外のもの)[https://www.zoftino.com/android]
 - Androidアプリの基礎(Qiita)[https://qiita.com/ktaka/items/8cc997e464442aae4e18]
+- Javaでオセロを書いてみる(Qiita)[https://qiita.com/nogitsune413/items/d252a879480480a0697a]
+- Javaでゲームを作るための5つの要素[https://web-camp.io/magazine/archives/12474]
