@@ -7,3 +7,4 @@
 - Javaの道[https://www.javaroad.jp/index_basic.htm]
 - AndroidTraining[http://mixi-inc.github.io/AndroidTraining/]
 - Codelab[https://codelabs.developers.google.com/]
+- Androidのチュートリアル（翻訳した方が読みやすい）[https://www.vogella.com//tutorials/android.html]
