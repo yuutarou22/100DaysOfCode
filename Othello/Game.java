@@ -44,13 +44,23 @@ public class Game {
         try {
             inputY = scan.nextInt();            
         } catch (Exception e) {
-            // X座標を「fdsaf」とか入力するとY座標も不正値になる
+            // TODO: X座標を「fdsaf」とか入力するとY座標も不正値になる
             System.out.println("不正な値でした");
         }
 
-        System.out.println("inputX: " + inputX);
-        System.out.println("inputY: " + inputY);
+        // 置けるかどうか判定
+        if (judge(inputX, inputY)) {
+            board.putStone(inputX, inputY, 1);
+        } else {
+            System.out.println("指定された場所には置けません。");
+        }
+    }
 
-        board.putStone(inputX, inputY, 1);
+    public static boolean judge(int inputX, int inputY) {
+        if ((board.getStone(inputY, inputX)).getState() == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
