@@ -39,6 +39,7 @@ class Main {
     }
 
     public static void ExIOMethod1() {
+        System.out.println("ExIOMethod1 START");
         try {
             // ファイル名を指定し、FileReaderオブジェクトabcを生成
             FileReader abc = new FileReader("abc.txt");
@@ -57,9 +58,11 @@ class Main {
         } catch(IOException e) {
             System.out.println("入出力エラーです" + e.getMessage());
         }
+        System.out.println("ExIOMethod1 END");
     }
 
     public static void ExIOMethod2() {
+        System.out.println("ExIOMethod2 START");
         // オブジェクトの生成、read、writeメソッド実行時、
         // チェック例外が起きる可能性があるのでtry-catch.
         try {
@@ -74,7 +77,9 @@ class Main {
 
             int contents;
 
+            // 読み込むデータがなくなるまで読み込み
             while((contents = in.read()) != -1) {
+                // 書き込むデータがなくなるまで書き込む
                 out.write(contents);
             }
             in.close();
@@ -82,5 +87,6 @@ class Main {
         } catch (IOException e) {
             System.out.println("入出力エラーです" + e.getMessage());
         }
+        System.out.println("ExIOMethod2 END");
     }
 }
