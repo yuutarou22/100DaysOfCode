@@ -36,6 +36,8 @@ class Main {
         }
         ExIOMethod1();
         ExIOMethod2();
+
+        ExIOMethod3();
     }
 
     public static void ExIOMethod1() {
@@ -88,5 +90,14 @@ class Main {
             System.out.println("入出力エラーです" + e.getMessage());
         }
         System.out.println("ExIOMethod2 END");
+    }
+
+    public static void ExIOMethod3() {
+        /**
+         * パイプ入出力とは、ある処理の出力を別の処理の入力とする処理のこと。
+         * つまり、中間ファイルを作成する必要がない。
+         */
+        PipedWriter Out = new PipedWriter();
+        PipedReader Int = new PipedReader(Out);
     }
 }
