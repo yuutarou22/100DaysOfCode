@@ -2,6 +2,7 @@ import java.util.*;
 
 class Main {
     /**
+     * 参考　http://www.javaroad.jp/java_collection1.htm
      * 「コレクション」とは、複数の要素の集まりを指す。
      * 「コレクションフレームワーク」とは、
      * その要素の集まりを操作・管理するための方法を定義したアーキテクチャ
@@ -21,12 +22,19 @@ class Main {
      * ・SortedMapインタフェース
      * 　　　　Mapインタフェースを継承する。
      * 　　　　Mapの特性に加え、キーをルールに基づきソートする
+     * 
+     * 上記のこれらのインタフェースを実装したクラスが、普段使われる。
+     * よく使う ArrayList は、Listインタフェースを実装している。
+     * 
+     * 以下では、List, Set, Map のインタフェースの特性を実際に用いる。
      */
     public static void main(String[] args) {
-        ExCollection1();
+        ExCollectionList();
+        ExCollectionSet();
+        // ExCollectionMap();
     }
 
-    public static void ExCollection1() {
+    public static void ExCollectionList() {
         /**
          * Listインタフェースは、重複要素を許可し、要素において順番を持つ。
          * インデックス番号によって要素にアクセスするメソッドや、
@@ -50,6 +58,7 @@ class Main {
         ArrayList<Integer> arrayListEnd = new ArrayList<Integer>();
         LinkedList<Integer> linkedListEnd = new LinkedList<Integer>();
 
+        System.out.println("============ListTest============");
         // ArrayList 先頭追加
         start = System.currentTimeMillis(); // 現在時刻取得
         addhead(arrayListHead);
@@ -103,5 +112,63 @@ class Main {
         for(int i = 0; i < exList.size(); i++) {
             exList.get(i);
         }
+    }
+
+    public static void ExCollectionSet() {
+        /**
+         * Setインタフェースは、重複要素を持たないオブジェクトの集合を実装する。
+         * Setインタフェースを実装するクラス
+         *      ・HashSetクラス
+         *              Setインタフェースを実装した基本となるクラス。
+         *              保持する要素に重複要素は無い。
+         *              保持する要素の順序を保証しない。
+         *              Setインタフェースを実装したクラスの中で最も高速。
+         *      ・TreeSetクラス
+         *              保持する要素に重複要素は無い。
+         *              保持する要素は自然順序、もしくはコンストラクタのComparatorに従い昇順にソートされる。
+         *      ・LinkedHashSetクラス
+         *              保持する要素に重複要素は無い。
+         *              保持する要素の挿入される挿入順を保持する。
+         */
+
+        System.out.println("============SetTest============");
+        showFeature(new HashSet(), "HashSet");
+        showFeature(new TreeSet(), "TreeSet");
+        showFeature(new LinkedHashSet(), "LinkedHashSet");
+
+        Set treeSet = new TreeSet();
+
+        Set treeSet1 = new TreeSet();
+        for (int i = 1; i < 4; i++) {
+            treeSet1.add(new Integer(i));
+        }
+
+        Set treeSet2 = new TreeSet();
+        for (int i = 1; i < 4; i++) {
+            treeSet2.add(new Integer(i*11));
+        }
+
+        treeSet.addAll(treeSet1);
+        System.out.println("\ntreeSet1を追加: " + treeSet);
+
+        treeSet.addAll(treeSet2);
+        System.out.println("treeSet2を追加: " + treeSet);
+
+        treeSet.retainAll(treeSet1);
+        System.out.println("treeSet1のみ保持: " + treeSet);
+
+        if (treeSet.containsAll(treeSet1)) { // treeSet1の要素が全てtreeSetにあるか判定
+            treeSet.addAll(treeSet2);
+        }
+        System.out.println("treeSet2を追加: " + treeSet);
+    }
+
+    public static void showFeature(Set exSet, String setType) {
+        int[] intArray = {5, 8, 2, 9, 1};
+        for(int num : intArray) {
+            exSet.add(new Integer(num));
+        }
+        // exSet.clear();
+        System.out.println(setType + " : " + exSet/*.toArray()*/);
     }
 }
