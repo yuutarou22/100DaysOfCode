@@ -31,7 +31,7 @@ class Main {
     public static void main(String[] args) {
         ExCollectionList();
         ExCollectionSet();
-        // ExCollectionMap();
+        ExCollectionMap();
     }
 
     public static void ExCollectionList() {
@@ -163,6 +163,31 @@ class Main {
         System.out.println("treeSet2を追加: " + treeSet);
     }
 
+    public static void ExCollectionMap(){
+        /**
+         * Mapインタフェースは、「キー」と「値」が対になった要素を持つ。
+         * キーの重複は許可されず、各キーは1つの値にのみ対応する。
+         * キーから値を参照するデータ構造を持ったデータ利用に適している。
+         * Mapインタフェースを実装するクラス
+         *      ・HashMapクラス
+         *              Mapインタフェースを実装した基本となるクラス。
+         *              キーの順序を保持しない。
+         *              Mapインタフェースを実装したクラスの中で最も高速。
+         *      ・TreeMapクラス
+         *              保持する要素は自然順序、もしくはコンストラクタの
+         *              Comparatorに従い昇順にソートされる（TreeSet同様）。
+         *      ・LinkedHashMapクラス
+         *              キーが挿入される挿入順を保持する。
+         *              コンストラクタの引数の指定によって、挿入順ではなくアクセス順に保持することも可能。
+         *              デフォルトは挿入順。
+         */
+        System.out.println("============MapTest============");
+        showFeature(new HashMap(), "HashMap");
+        showFeature(new TreeMap(), "TreeMap");
+        showFeature(new LinkedHashMap(), "LinkedHashMap");
+    }
+
+    // Set用
     public static void showFeature(Set exSet, String setType) {
         int[] intArray = {5, 8, 2, 9, 1};
         for(int num : intArray) {
@@ -170,5 +195,54 @@ class Main {
         }
         // exSet.clear();
         System.out.println(setType + " : " + exSet/*.toArray()*/);
+    }
+    
+    // Map用
+    public static void showFeature(Map exMap, String setType) {
+        String[] tel = {"092", "06", "052", "03", "011"};
+        String[] area = {"Fukuoka", "Osaka", "Nagoya", "Tokyo", "Hokkaido"};
+        for(int i = 0; i < tel.length; i++) {
+            exMap.put(tel[i], area[i]);
+        }
+        // exMap.clear();
+        System.out.println(setType + " : " + exMap/*.toArray()*/);
+
+        Map linkHashMap1 = new LinkedHashMap(16, 0.75F, true); // アクセス順
+        Map linkHashMap2 = new LinkedHashMap(16, 0.75F, false); // 挿入順
+
+        // 要素を挿入
+        for (int i = 0; i < 5; i++) {
+            linkHashMap1.put(tel[i], area[i]); // Key, Value で代入する
+            linkHashMap2.put(tel[i], area[i]); // Key, Value で代入する
+        }
+
+        // 要素にアクセス（getするだけ）
+        linkHashMap1.get("011");
+        linkHashMap2.get("011");
+
+        linkHashMap1.get("03");
+        linkHashMap2.get("03");
+
+        linkHashMap1.get("052");
+        linkHashMap2.get("052");
+
+        linkHashMap1.get("06");
+        linkHashMap2.get("06");
+
+        linkHashMap1.get("092");
+        linkHashMap2.get("092");
+
+        System.out.println("アクセス順: " + linkHashMap1);
+        System.out.println("挿入順: " + linkHashMap2);
+
+        Scanner scn = new Scanner(System.in);
+        System.out.println("このキーある？: ");
+        String keyStr = scn.nextLine();
+        if (linkHashMap1.containsKey(keyStr)) {
+            System.out.println("あります（小保方風）\n");
+        } else {
+            System.out.println("ないです\n");
+        }
+        return;
     }
 }
