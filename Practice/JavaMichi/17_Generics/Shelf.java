@@ -5,7 +5,7 @@ public class Shelf<T> {
         this.value = value;
     }
 
-    public void getValue () {
+    public T getValue() {
         return value;
     }
 }
