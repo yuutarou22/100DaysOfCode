@@ -1,0 +1,2 @@
+class ExAccessB extends ExAccessA {
+}

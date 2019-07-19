@@ -1,0 +1,9 @@
+- VScodeに追加したプラグイン
+  - Vetur
+  - BrowserPreview
+- 参考サイト
+  - HTML　https://coliss.com/articles/build-websites/operation/work/generic-html5-template-by-sixrevisions.html
+  - Vue
+    - https://qiita.com/kskinaba/items/3e8887d45b11f9132012
+    - https://qiita.com/runes224/items/1372be0cbb5eeef1b51a
+    - https://qiita.com/andmorefine/items/bec9cbe9a22c90bd6b43
