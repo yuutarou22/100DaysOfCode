@@ -15,6 +15,7 @@
 //         サーバサイド言語：PHP, Python, Rubyなど。
 //         JSもサーバサイドで用いられ、例としてNode.js環境がある。
 
+// ボタンを押すとテキスト追加
 function createParagraph() {
     var para = document.createElement('p');
     para.textContent = 'ボタンが押されました！';
@@ -26,3 +27,47 @@ var buttons = document.querySelectorAll('button');
 for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', createParagraph);
 }
+
+// 数当てゲーム
+var randomNumber = Math.floor(Math.random() * 100) + 1;
+var guesses = document.querySelector('.guesses');
+var lastResult = document.querySelector('.lastResult');
+var lowOrHi = document.querySelector('.lowOrHi');
+
+var guessSubmit = document.querySelector('.guessSubmit');
+var guessField = document.querySelector('.guessField');
+
+var guessCount = 1;
+var resetButton;
+
+function checkGuess() {
+    // 入力値を数値に変換し、randomNumberと比較
+    var userGuess = Number(guessField.value);
+    if(guessCount === 1) {
+        guesses.textContent = '前回の予想：';
+    }
+    guesses.textContent += userGuess + '';
+
+    if(userGuess === randomNumber) {
+        lastResult.textContent = 'おめでとう！正解です！';
+        lastResult.style.backgroundColor = 'green';
+        lowOrHi.textContent = '';
+    } else if(guessCount === 10) {
+        lastResult.textContent = '!!!GAME OVER!!!';
+        setGameOver();
+    } else {
+        lastResult.textContent = '間違いです！';
+        lastResult.style.backgroundColor = 'red';
+        if(userGuess < randomNumber) {
+            lowOrHi.textContent = '今の予想は小さすぎです！もっと大きな数字です。';
+        } else if(userGuess > randomNumber) {
+            lowOrHi.textContent = '今の予想は大きすぎです！もっと小さな数字です。';
+        }
+    }
+
+    // 次の予想入力の準備
+    guessCount++;
+    guessField.value = '';
+    guessField.focus();
+}
+
