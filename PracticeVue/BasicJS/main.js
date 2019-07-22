@@ -71,3 +71,35 @@ function checkGuess() {
     guessField.focus();
 }
 
+// HTMLで「class="guessSubmit"」と定義しているSubmitボタンに対して、イベントリスナーを追加。
+// 発生したことを知りたいイベントの種類（ここではclick）と、
+// イベントが発生した場合に実行するコード（ここではcheckGuess）をとる関数
+guessSubmit.addEventListener('click', checkGuess);
+
+function setGameOver() {
+    guessField.disabled = true;
+    guessSubmit.disabled = true;
+    resetButton = document.createElement('');
+    resetButton.textContent = '新しいゲームを始める';
+    document.body.appendChild(resetButton);
+    resetButton.addEventListener('click', resetGame);
+}
+
+function resetGame() {
+    guessCount = 1;
+    
+    var resetParas = document.querySelectorAll('.resetParas ');
+    for(var i = 0; i < resetParas.length; i++) {
+        resetParas[i].textContent = '';
+    }
+
+    resetButton.parentNode.removeChile(resetButton);
+
+    guessField.disabled = false;
+    guessSubmit.disable = false;
+    guessField.value = '';
+    guessField.focus();
+
+    lastResult.style.backgroundColor = 'white';
+    randomNumber = Math.floor(Math.LN10)
+}
