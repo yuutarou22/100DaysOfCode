@@ -15,6 +15,13 @@
 //         サーバサイド言語：PHP, Python, Rubyなど。
 //         JSもサーバサイドで用いられ、例としてNode.js環境がある。
 
+// 【重要】
+// JavaScriptでは、全てのものが「オブジェクト」となっている。
+// オブジェクトというのは、１箇所に関連する機能をまとめたもの。
+// 例えば、以下のようなコード。
+// var guessField = document.querySelector('.guessField');
+// これは、documentオブジェクトのquerySelectorメソッドを使用して、必要な要素を選択している。
+
 // ボタンを押すとテキスト追加
 function createParagraph() {
     var para = document.createElement('p');
@@ -39,6 +46,7 @@ var guessField = document.querySelector('.guessField');
 
 var guessCount = 1;
 var resetButton;
+guessField.focus(); // サイトを開いた時、フォーカスを合わせてくれる
 
 function checkGuess() {
     // 入力値を数値に変換し、randomNumberと比較
@@ -88,7 +96,7 @@ function setGameOver() {
 function resetGame() {
     guessCount = 1;
     
-    var resetParas = document.querySelectorAll('.resetParas ');
+    var resetParas = document.querySelectorAll('.resetParas p');
     for(var i = 0; i < resetParas.length; i++) {
         resetParas[i].textContent = '';
     }
