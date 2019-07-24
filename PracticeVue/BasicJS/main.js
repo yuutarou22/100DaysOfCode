@@ -111,3 +111,9 @@ function resetGame() {
     lastResult.style.backgroundColor = 'white';
     randomNumber = Math.floor(Math.LN10)
 }
+
+var alert_button = document.querySelector('.alert_button');
+alert_button.onclick = function() {
+    var name = prompt('あなたの名前は？');
+    alert('こんにちは、' + name + 'さん！');
+}
