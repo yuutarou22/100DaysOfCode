@@ -19,38 +19,38 @@
 // JavaScriptでは、全てのものが「オブジェクト」となっている。
 // オブジェクトというのは、１箇所に関連する機能をまとめたもの。
 // 例えば、以下のようなコード。
-// var guessField = document.querySelector('.guessField');
+// let guessField = document.querySelector('.guessField');
 // これは、documentオブジェクトのquerySelectorメソッドを使用して、必要な要素を選択している。
 
 // ボタンを押すとテキスト追加
 function createParagraph() {
-    var para = document.createElement('p');
+    let para = document.createElement('p');
     para.textContent = 'ボタンが押されました！';
     document.body.appendChild(para);
 }
 
-var buttons = document.querySelectorAll('button');
+let buttons = document.querySelectorAll('button');
 
-for (var i = 0; i < buttons.length; i++) {
+for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', createParagraph);
 }
 
 // 数当てゲーム
-var randomNumber = Math.floor(Math.random() * 100) + 1;
-var guesses = document.querySelector('.guesses');
-var lastResult = document.querySelector('.lastResult');
-var lowOrHi = document.querySelector('.lowOrHi');
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+let guesses = document.querySelector('.guesses');
+let lastResult = document.querySelector('.lastResult');
+let lowOrHi = document.querySelector('.lowOrHi');
 
-var guessSubmit = document.querySelector('.guessSubmit');
-var guessField = document.querySelector('.guessField');
+let guessSubmit = document.querySelector('.guessSubmit');
+let guessField = document.querySelector('.guessField');
 
-var guessCount = 1;
-var resetButton;
+let guessCount = 1;
+let resetButton;
 guessField.focus(); // サイトを開いた時、フォーカスを合わせてくれる
 
 function checkGuess() {
     // 入力値を数値に変換し、randomNumberと比較
-    var userGuess = Number(guessField.value);
+    let userGuess = Number(guessField.value);
     if(guessCount === 1) {
         guesses.textContent = '前回の予想：';
     }
@@ -96,8 +96,8 @@ function setGameOver() {
 function resetGame() {
     guessCount = 1;
     
-    var resetParas = document.querySelectorAll('.resetParas p');
-    for(var i = 0; i < resetParas.length; i++) {
+    let resetParas = document.querySelectorAll('.resetParas p');
+    for(let i = 0; i < resetParas.length; i++) {
         resetParas[i].textContent = '';
     }
 
@@ -112,8 +112,8 @@ function resetGame() {
     randomNumber = Math.floor(Math.LN10)
 }
 
-var alert_button = document.querySelector('.alert_button');
+let alert_button = document.querySelector('.alert_button');
 alert_button.onclick = function() {
-    var name = prompt('あなたの名前は？');
+    let name = prompt('あなたの名前は？');
     alert('こんにちは、' + name + 'さん！');
 }
