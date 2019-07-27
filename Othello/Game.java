@@ -5,25 +5,18 @@ public class Game {
     static Scanner scan = new Scanner(System.in);
     static Board board = new Board(10,10);
     public static void main(String[] args) {
+        Player playerBk = new Player(true, 2);
+        Player playerWt = new Player(false, 2);
+
         board.initBoard();
-        initPutStone();
+        board.initPutStone();
         board.showBoard();
 
         // 石を置く場所の入力
-        while (true) {
+        while (playerBk.) {
             inputStonePosition();
             board.showBoard();
         }
-    }
-
-    /**
-     * 石の初期配置処理
-     */
-    public static void initPutStone() {
-        board.putStone(4, 4, 1);
-        board.putStone(5, 5, 1);
-        board.putStone(4, 5, -1);
-        board.putStone(5, 4, -1);
     }
 
     /**
@@ -56,8 +49,15 @@ public class Game {
         }
     }
 
+    /**
+     * 
+     * @param inputX
+     * @param inputY
+     * @return 判定結果（true: 置ける、false: 置けない）
+     */
     public static boolean judge(int inputX, int inputY) {
-        if ((board.getStone(inputY, inputX)).getState() == 0) {
+        if ((board.getStone(inputX, inputY)).getState() == 0) {
+            // ToDo: 周囲に自石と異なる石があり、1つでも反転できる場合のみ。
             return true;
         } else {
             return false;

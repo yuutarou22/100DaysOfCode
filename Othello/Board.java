@@ -10,6 +10,11 @@ public class Board {
     private int yNum = 0;
     private int xNum = 0;
 
+    /**
+     * コンストラクタ
+     * @param xNum
+     * @param yNum
+     */
     public Board(int xNum, int yNum) {
         this.xNum = xNum;
         this.yNum = yNum;
@@ -29,10 +34,20 @@ public class Board {
         
         for (int y = 1; y < this.yNum-1; y++) {
             for (int x = 1; x < this.xNum-1; x++) {
-                Stone stone = getStone(y, x);
+                Stone stone = getStone(x, y);
                 stone.setState(0);
             }
         }
+    }
+
+    /**
+     * 盤面の初期配置
+     */
+    public void initPutStone() {
+        putStone(4, 4, 1);
+        putStone(5, 5, 1);
+        putStone(4, 5, -1);
+        putStone(5, 4, -1);
     }
 
     /**
@@ -41,10 +56,10 @@ public class Board {
      * @param y
      * @return Stone
      */
-    public Stone getStone(int y, int x) {
+    public Stone getStone(int x, int y) {
         for (Stone Stone : this.StoneList) {
             int[] position = Stone.getPosition();
-            if (position[0] == y && position[1] == x) return Stone;
+            if (position[0] == x && position[1] == y) return Stone;
         }
         return null;
     }
