@@ -7,17 +7,27 @@ import java.util.List;
  */
 public class Board {
     private List<Stone> StoneList;
-    private int yNum = 0;
-    private int xNum = 0;
+    private int mHeightSize = 0;
+    private int mWidthSize = 0;
 
     /**
      * コンストラクタ
-     * @param xNum
-     * @param yNum
+     * 正方形でない盤面でも対応
+     * @param mWidthSize
+     * @param mHeightSize
      */
-    public Board(int xNum, int yNum) {
-        this.xNum = xNum;
-        this.yNum = yNum;
+    public Board(int mWidthSize, int mHeightSize) {
+        this.mWidthSize = mWidthSize;
+        this.mHeightSize = mHeightSize;
+    }
+    
+    /**
+     * コンストラクタ
+     * 引数が一つだった場合、自動的に正方形を生成する
+     * @param size
+     */
+    public Board(int size) {
+        this(size, size);
     }
 
     /**
@@ -25,15 +35,15 @@ public class Board {
      */
     public void initBoard() {
         this.StoneList = new ArrayList<>();
-        for (int y = 0; y < this.yNum; y++) {
-            for (int x = 0; x < this.xNum; x++) {
+        for (int y = 0; y < this.mHeightSize; y++) {
+            for (int x = 0; x < this.mWidthSize; x++) {
                 Stone Stone = new Stone(x, y, 2);
                 this.StoneList.add(Stone);
             }
         }
         
-        for (int y = 1; y < this.yNum-1; y++) {
-            for (int x = 1; x < this.xNum-1; x++) {
+        for (int y = 1; y < this.mHeightSize-1; y++) {
+            for (int x = 1; x < this.mWidthSize-1; x++) {
                 Stone stone = getStone(x, y);
                 stone.setState(0);
             }
@@ -79,7 +89,7 @@ public class Board {
      * 盤面の表示処理
      */
     public void showBoard() {
-        int [][] board = new int[yNum][xNum];
+        int [][] board = new int[mHeightSize][mWidthSize];
         for (Stone Stone : this.StoneList) {
             int[] pos = Stone.getPosition();
             int state = Stone.getState();
