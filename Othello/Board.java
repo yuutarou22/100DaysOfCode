@@ -13,18 +13,19 @@ public class Board {
     /**
      * コンストラクタ
      * 正方形でない盤面でも対応
-     * @param mWidthSize
-     * @param mHeightSize
+     * 
+     * @param widthSize 横サイズ
+     * @param heightSize 縦サイズ
      */
-    public Board(int mWidthSize, int mHeightSize) {
-        this.mWidthSize = mWidthSize;
-        this.mHeightSize = mHeightSize;
+    public Board(int widthSize, int heightSize) {
+        this.mWidthSize = widthSize;
+        this.mHeightSize = heightSize;
     }
     
     /**
      * コンストラクタ
      * 引数が一つだった場合、自動的に正方形を生成する
-     * @param size
+     * @param size サイズ
      */
     public Board(int size) {
         this(size, size);
@@ -62,9 +63,9 @@ public class Board {
 
     /**
      * 盤面のコマを取得する
-     * @param x
-     * @param y
-     * @return Stone
+     * @param x 石の横位置
+     * @param y 石の縦位置
+     * @return Stone 指定場所の石情報
      */
     public Stone getStone(int x, int y) {
         for (Stone Stone : this.StoneList) {
@@ -76,9 +77,9 @@ public class Board {
 
     /**
      * 盤面にコマを置く
-     * @param x
-     * @param y
-     * @param state
+     * @param x 石の横位置
+     * @param y 石の縦位置
+     * @param state 指定場所の石情報
      */
     public void putStone(int x, int y, int state){
         Stone Stone = getStone(x, y);
