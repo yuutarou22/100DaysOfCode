@@ -2,34 +2,29 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
+    static final int BOARD_SIZE = 8;
+    static final int MAX_STONES = BOARD_SIZE * 2;
     static Scanner scan = new Scanner(System.in);
-    static Board board = new Board(10,10);
+    static Board board = new Board(BOARD_SIZE + 2); // 上下左右の壁の分で2を加算
     public static void main(String[] args) {
+        Player playerBk = new Player(1, true, 2);
+        Player playerWt = new Player(-1, false, 2);
+
         board.initBoard();
-        initPutStone();
+        board.initPutStone();
         board.showBoard();
 
         // 石を置く場所の入力
-        while (true) {
-            inputStonePosition();
+        while (playerBk.getStones() + playerWt.getStones() != MAX_STONES){
+            inputStonePosition(playerBk, playerWt);
             board.showBoard();
         }
     }
 
     /**
-     * 石の初期配置処理
-     */
-    public static void initPutStone() {
-        board.putStone(4, 4, 1);
-        board.putStone(5, 5, 1);
-        board.putStone(4, 5, -1);
-        board.putStone(5, 4, -1);
-    }
-
-    /**
      * 石を置く場所の入力
      */
-    public static void inputStonePosition() {
+    public static void inputStonePosition(Player playerBk, Player playerWt) {
         int inputX = -1;
         int inputY = -1;
 
@@ -50,14 +45,30 @@ public class Game {
 
         // 置けるかどうか判定
         if (judge(inputX, inputY)) {
-            board.putStone(inputX, inputY, 1);
+            if (playerBk.getTurn()) {
+                board.putStone(inputX, inputY, playerBk.getHaveStone());
+                playerBk.setTurn(false);
+                playerWt.setTurn(true);
+            } else {
+                board.putStone(inputX, inputY, playerWt.getHaveStone());
+                playerBk.setTurn(true);
+                playerWt.setTurn(false);
+            }
+            
         } else {
             System.out.println("指定された場所には置けません。");
         }
     }
 
+    /**
+     * 
+     * @param inputX
+     * @param inputY
+     * @return 判定結果（true: 置ける、false: 置けない）
+     */
     public static boolean judge(int inputX, int inputY) {
-        if ((board.getStone(inputY, inputX)).getState() == 0) {
+        if ((board.getStone(inputX, inputY)).getState() == 0) {
+            // ToDo: 周囲に自石と異なる石があり、1つでも反転できる場合のみ。
             return true;
         } else {
             return false;

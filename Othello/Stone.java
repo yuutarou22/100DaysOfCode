@@ -10,17 +10,28 @@ public class Stone {
     private int x;
     private int y;
 
-    public Stone(int x, int y) {
-        this.state = 0;
-        this.x = x;
-        this.y = y;
-    }
-
+    /**
+     * コンストラクタ
+     * @param x
+     * @param y
+     * @param state
+     */
     public Stone(int x, int y, int state) {
         this.state = state;
         this.x = x;
         this.y = y;
     }
+    
+    /**
+     * コンストラクタ
+     * @param x
+     * @param y
+     */
+    public Stone(int x, int y) {
+        this(x, y, 0);
+    }
+
+
 
     public int getState() {
         return this.state;
