@@ -12,9 +12,9 @@ public class Stone {
 
     /**
      * コンストラクタ
-     * @param x
-     * @param y
-     * @param state
+     * @param x 石の横位置
+     * @param y 石の縦位置
+     * @param state 指定場所の石情報
      */
     public Stone(int x, int y, int state) {
         this.state = state;
@@ -24,14 +24,12 @@ public class Stone {
     
     /**
      * コンストラクタ
-     * @param x
-     * @param y
+     * @param x 石の横位置
+     * @param y 石の縦位置
      */
     public Stone(int x, int y) {
         this(x, y, 0);
     }
-
-
 
     public int getState() {
         return this.state;
