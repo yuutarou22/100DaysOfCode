@@ -90,3 +90,14 @@ for (var i = 0; i < ary.length; i++) {
         document.write("[" + i + "]" + "[" + j + "] = " + ary[i][j] + "<br>");
     }
 }
+
+// 関数の使い方
+NumCheck(3);
+
+function NumCheck(num) {
+    if (num % 2 === 0) {
+        document.write("<p>" + num + "は偶数です</p>");
+    } else {
+        document.write("<p>" + num + "は奇数です</p>");
+    }
+}
