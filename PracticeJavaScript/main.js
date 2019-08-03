@@ -90,3 +90,31 @@ for (var i = 0; i < ary.length; i++) {
         document.write("[" + i + "]" + "[" + j + "] = " + ary[i][j] + "<br>");
     }
 }
+
+// 関数の使い方
+NumCheck(3);
+
+function NumCheck(num) {
+    if (num % 2 === 0) {
+        document.write("<p>" + num + "は偶数です</p>");
+    } else {
+        document.write("<p>" + num + "は奇数です</p>");
+    }
+}
+
+// グローバル関数
+// 1. 文字列を整数に変換する関数(文字が混ざっていても問題ないが、先頭が数字でなければNaNを返す)
+let tmp = "10";
+document.write("<p>parseInt = " + parseInt(tmp) + "</p>");
+tmp = "2019year";
+document.write("<p>parseInt = " + parseInt(tmp) + "</p>");
+tmp = "-88point";
+document.write("<p>parseInt = " + parseInt(tmp) + "</p>");
+tmp = "-44point";
+document.write("<p>parseFloat = " + parseFloat(tmp) + "</p>");
+tmp = "2.4e-4";
+document.write("<p>parseFloat = " + parseFloat(tmp) + "</p>");
+
+// 2. NaNかどうかを調べる関数
+
+// 3. 値が有限値か、無限値か調べる関数
