@@ -44,4 +44,15 @@ print "sales * 3 = ", sales * 3
 print "100 in sales = ", 100 in sales
 print "150 in sales = ", 150 in sales
 
-print range(10)
+print "sales.sort() = ", sales.sort() # 小さい順に並び替える
+print "sales.reverce() = ", sales.reverse() # 逆順にする
+
+a = "2019/08/20"
+b = ['a', 'b', 'c']
+print "a.split(\"/\") = ", a.split("/") # 文字列->リスト
+print "\"-\".join(b) = ", "-".join(b)
+
+# range(配列作成)
+print range(10) #1から9まで
+print range(3, 10) #3から9まで
+print range(3, 10, 2) #3から9まで2飛ばし
