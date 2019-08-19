@@ -33,6 +33,15 @@ print "5 + float(strNum) % 10.0 = ", 5 + float(strNum) % 10.0
 
 # 数値 -> 文字列(以下の例は別にstrキャストしなくても行ける)
 age = 21
-print "私の年齢は", str(age), "才です。"
+# print "私の年齢は" + str(age) + "才です。" <-なんかTypeErrorでる
 
 # リスト
+sales = [255, 100, 353, 400]
+print "len(sales) = ", len(sales)
+print "sales[1] = ", sales[1]
+print "sales + sales = ", sales + sales
+print "sales * 3 = ", sales * 3
+print "100 in sales = ", 100 in sales
+print "150 in sales = ", 150 in sales
+
+print range(10)
