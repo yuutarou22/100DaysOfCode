@@ -39,3 +39,15 @@
 
 - 使用するPythonのバージョンを切り替える
 `pyenv global versionNumber`
+
+## Python 基本文法について
+### 関数
+- 標準ライブラリ
+  - 組み込み関数（import不要）
+  - import必要な関数
+- 外部ライブラリ
+  - ダウンロードや事前設定、importも必要な関数
+    - pip3などでダウンロードする
+
+
+
