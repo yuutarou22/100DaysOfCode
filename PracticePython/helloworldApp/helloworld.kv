@@ -1,2 +1,48 @@
-Label:
-    text: "Hello World!!!!!!!!!"
+#:kivy 1.11.1
+
+BoxLayout:
+    orientation: 'horizontal'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 1
+        Label:
+            text: "1Good Morning"
+            color: 1, 0, 1, 1
+        Label:
+            text: "1Hello"
+            color: 1, 0, 1, 1
+        Label:
+            text: "1Good Night"
+            color: 1, 0, 1, 1
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 3
+        Label:
+            text: "2Good Morning"
+            color: 0, 1, 0, 1
+        Label:
+            text: "2Hello"
+            color: 0, 1, 0, 1
+            canvas.before:
+                Color:
+                    rgba: 0, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Label:
+            text: "2Good Night"
+            color: 0, 1, 0, 1
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 2
+        size: 
+        Label:
+            text: "3Good Morning"
+            color: 0, 0, 1, 1
+        Label:
+            text: "3Hello"
+            color: 0, 0, 1, 1
+        Label:
+            text: "3Good Night"
+            color: 0, 0, 1, 1
+

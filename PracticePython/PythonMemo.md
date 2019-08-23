@@ -106,3 +106,11 @@
 
 ### Kivyについて
 - Appクラスを継承したサブクラス名のうち、「App」の前までの名前がタイトルに表示される。
+- 座標の原点は *左下* となっているため注意
+- 意味不明の言葉について
+  - self ・・・ そのWidgetを取得
+  - root ・・・ rootWidgetを取得
+  - app ・・・ Appを取得
+- Kvファイルを書きながら確認できる「kviewer」の使い方
+  - `pip3 install watchdog`
+  - 
