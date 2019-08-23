@@ -71,7 +71,14 @@
 
 - Kivyのインストール
   - `pip3 install kivy`
-  - 
+  - cython, pygame, pillowのインストールも必要
+    - `pip3 install cython`
+    - `pip3 install pygame`
+    - `pip3 install pillow`
+
+
+
+
 
 
 ## aptとyum
@@ -94,4 +101,8 @@
     - 公式が配布（Pythonに付属）
 - pip と pip3の違い
   - Python2 と Python3 の間で大きくシステムが変わり、非互換な部分も出ているため分けられている。1つのシステムに Python2 と Python3 の両方を入れることもある。したがって、pip と pip3 を両方扱う場合もある。
+  - 2系と3系が共存するのであれば、それぞれのディレクトリにインストールされることになる。
+  - `pip3 freeze`バージョンも含めた一覧が確認できる
 
+### Kivyについて
+- Appクラスを継承したサブクラス名のうち、「App」の前までの名前がタイトルに表示される。
