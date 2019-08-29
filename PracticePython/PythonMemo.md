@@ -113,4 +113,5 @@
   - app ・・・ Appを取得
 - Kvファイルを書きながら確認できる「kviewer」の使い方
   - `pip3 install watchdog`
-  - 
+  - `python3 -m kivy.tools.kviewer ./----.kv`
+  - 保存すると反映される。隣り合わせて作業するといいかも。
